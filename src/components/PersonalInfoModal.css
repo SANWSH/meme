@@ -23,6 +23,48 @@
     color: white;
   }
   
+
+  .credit-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 5px;
+    letter-spacing: 1px;
+  }
+
+  .credit-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 10px;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: white;
+    text-decoration-thickness: 2px;
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .banner {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .info-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
   .close-button {
     position: absolute;
     top: 10px;

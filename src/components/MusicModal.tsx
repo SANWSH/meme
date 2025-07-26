@@ -4,7 +4,6 @@ import { musicTracks } from '../music';
 import { getDisplayFolder, getDisplayTrack } from '../config/nameConfig';
 import { disabledTracks as defaultDisabledTracks } from '../config/disabled';
 import { trackCategories } from '../config/categoryConfig';
-import { useAudioPlayer } from '../hooks/useAudioPlayer';
 import { tabs } from '../config/categoryConfig';
 
 interface MusicModalProps {

@@ -64,6 +64,33 @@ import BetaOasis_Peace from './assets/Music/BetaOasis/Peace.mp3';
 import BetaDreamWaterfalls_Medium from './assets/Music/BetaDreamWaterfalls/Medium.mp3';
 import BetaDreamWaterfalls_Peace from './assets/Music/BetaDreamWaterfalls/Peace.mp3';
 import BetaDreamWaterfalls_Fight from './assets/Music/BetaDreamWaterfalls/Fight.mp3';
+import CorridorOfDeath_Peace from './assets/Music/CorridorOfDeath/Peace.ogg';
+import Courtyards_Peace from './assets/Music/Courtyards/Peace.ogg';
+import Courtyards_Medium from './assets/Music/Courtyards/Medium.ogg';
+import GothicCastle_Peace from './assets/Music/GothicCastle/Peace.ogg';
+import GothicCastle_Medium from './assets/Music/GothicCastle/Medium.ogg';
+import LandOfDamned_Peace from './assets/Music/LandOfDamned/Peace.ogg';
+import LandOfDamned_Medium from './assets/Music/LandOfDamned/Medium.ogg';
+import Multiplayer_RedStation from './assets/Music/Multiplayer/RedStation.ogg';
+import Palenque_Medium from './assets/Music/Palenque1/Medium.ogg';
+import Palenque_Peace from './assets/Music/Palenque1/Peace.ogg';
+import Palenque_MediumInside from './assets/Music/Palenque1/MediumInside.ogg';
+import Palenque_PeaceInside from './assets/Music/Palenque1/PeaceInside.ogg';
+import Persepolis_Medium from './assets/Music/Persepolis/Medium.ogg';
+import Persepolis_Peace from './assets/Music/Persepolis/Peace.ogg';
+import SerpentYards_Medium from './assets/Music/SerpentYards/Medium.ogg';
+import SerpentYards_Peace from './assets/Music/SerpentYards/Peace.ogg';
+import Teotihuacan_Medium from './assets/Music/Teotihuacan1/Medium.ogg';
+import Teotihuacan_Peace from './assets/Music/Teotihuacan1/Peace.ogg';
+import ThePit_Medium from './assets/Music/ThePit/Medium.ogg';
+import ThePit_Peace from './assets/Music/ThePit/Peace.ogg';
+import TowerOfBabylon_Medium from './assets/Music/TowerOfBabylon/Medium.ogg';
+import TowerOfBabylon_Peace from './assets/Music/TowerOfBabylon/Peace.ogg';
+import Ziggurrat_Medium from './assets/Music/Ziggurrat/Medium.ogg';
+import Ziggurrat_Peace from './assets/Music/Ziggurrat/Peace.ogg';
+
+
+
 
 
 
@@ -134,4 +161,28 @@ export const musicTracks : Track[] = [
     { src: BetaDreamWaterfalls_Medium, name: 'BetaDreamWaterfalls - Medium', disabled: false },
     { src: BetaDreamWaterfalls_Peace, name: 'BetaDreamWaterfalls - Peace', disabled: false },
     { src: BetaDreamWaterfalls_Fight, name: 'BetaDreamWaterfalls - Fight', disabled: false },
+    { src: CorridorOfDeath_Peace, name: 'CorridorOfDeath - Peace', disabled: false },
+    { src: Courtyards_Peace, name: 'Courtyards - Peace', disabled: false },
+    { src: Courtyards_Medium, name: 'Courtyards - Medium', disabled: false },
+    { src: GothicCastle_Peace, name: 'GothicCastle - Peace', disabled: false },
+    { src: GothicCastle_Medium, name: 'GothicCastle - Medium', disabled: false },
+    { src: LandOfDamned_Peace, name: 'LandOfDamned - Peace', disabled: false },
+    { src: LandOfDamned_Medium, name: 'LandOfDamned - Medium', disabled: false },
+    { src: Multiplayer_RedStation, name: 'Multiplayer - RedStation', disabled: false },
+    { src: Palenque_Medium, name: 'Palenque - Medium', disabled: false },
+    { src: Palenque_Peace, name: 'Palenque - Peace', disabled: false },
+    { src: Palenque_MediumInside, name: 'Palenque - MediumInside', disabled: false },
+    { src: Palenque_PeaceInside, name: 'Palenque - PeaceInside', disabled: false },
+    { src: Persepolis_Medium, name: 'Persepolis - Medium', disabled: false },
+    { src: Persepolis_Peace, name: 'Persepolis - Peace', disabled: false },
+    { src: SerpentYards_Medium, name: 'SerpentYards - Medium', disabled: false },
+    { src: SerpentYards_Peace, name: 'SerpentYards - Peace', disabled: false },
+    { src: Teotihuacan_Medium, name: 'Teotihuacan - Medium', disabled: false },
+    { src: Teotihuacan_Peace, name: 'Teotihuacan - Peace', disabled: false },
+    { src: ThePit_Medium, name: 'ThePit - Medium', disabled: false },
+    { src: ThePit_Peace, name: 'ThePit - Peace', disabled: false },
+    { src: TowerOfBabylon_Medium, name: 'TowerOfBabylon - Medium', disabled: false },
+    { src: TowerOfBabylon_Peace, name: 'TowerOfBabylon - Peace', disabled: false },
+    { src: Ziggurrat_Medium, name: 'Ziggurrat - Medium', disabled: false },
+    { src: Ziggurrat_Peace, name: 'Ziggurrat - Peace', disabled: false },
 ]; 

@@ -16,7 +16,20 @@ export const trackCategories: Record<string, string> = {
   'TombOfRamses': 'TFE',
   'YellowTerrain': 'TFE',
   'DreamWaterfalls': 'TFE',
-  
+
+  'CorridorOfDeath': 'TSE',
+  'Courtyards': 'TSE',
+  'GothicCastle': 'TSE',
+  'LandOfDamned': 'TSE',
+  'Palenque1': 'TSE',
+  'Palenque2': 'TSE',
+  'Persepolis': 'TSE',
+  'SerpentYards': 'TSE',
+  'Teotihuacan1': 'TSE',
+  'ThePit': 'TSE',
+  'TowerOfBabylon': 'TSE',
+  'Ziggurrat': 'TSE',
+
   'BetaYellowTerrain': 'v0.10',
   'BetaOasis': 'v0.10',
   'BetaDreamWaterfalls': 'v0.10',

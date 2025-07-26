@@ -19,4 +19,5 @@ declare module '*.png' {
     src: string;
     name: string;
     disabled?: boolean;
+    category?: string;
   }
