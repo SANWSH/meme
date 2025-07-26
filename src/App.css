@@ -1,0 +1,359 @@
+.app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .credits {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .credits a {
+    color: #61dafbaa;
+    text-decoration: none;
+  }
+
+  .credits a:hover {
+    text-decoration: underline;
+  }
+  
+  .flicker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    animation: flicker 1.5s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes flicker {
+    0%, 100% {
+      filter: brightness(1.2);
+    }
+    50% {
+      filter: brightness(0.8);
+    }
+  }
+  
+  .play-button-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.1s ease-out;
+  }
+
+  .play-pause-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .play-pause-button img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .track-name {
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: yellow;
+    font-size: 1.45rem;
+    text-shadow: -1px -1px 0px red, 1px 1px 0px red, 1px -1px 0px red, -1px 1px 0px red;
+  }
+
+  .track-name::before {
+    content: "Now Playing: ";
+    font-size: 1.45rem;
+    opacity: 0.5; 
+    color: white;
+    text-shadow: none;
+    font-weight: normal;
+  }
+
+  .track-info-container h1 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    user-select: none;
+  }
+
+  .bottom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+  }
+
+  .left-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .track-info-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 15px;
+    border-radius: 10px;
+    white-space: nowrap;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .next-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: yellow;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-family: 'Boink', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .playlist-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .playlist-button img {
+    width: 32px;
+    height: 32px;
+    filter: invert(1);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .playlist-button:hover img {
+    opacity: 1;
+  }
+
+  .download-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .download-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+  }
+
+  .download-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .download-button:hover {
+    opacity: 1;
+  }
+  
+  .personal-link {
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .personal-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .icon-button img {
+    width: 32px;
+    height: 32px;
+    filter: invert(1);
+  }
+
+  .icon-button:hover {
+    opacity: 1;
+  }
+
+  .icon-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .volume-slider:hover {
+    opacity: 1;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .volume-slider.vertical {
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
+    width: 10px;
+    height: 120px;
+  }
+
+  .volume-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .volume-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .volume-button:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 640px) {
+    .track-name,
+    .track-name::before,
+    .track-info-container h1,
+    .next-button,
+    .select-track-button {
+      font-size: 16px;
+    }
+
+    .track-info-container {
+      padding: 10px 7.5px;
+    }
+
+    .next-button,
+    .select-track-button {
+      padding: 5px 7.5px;
+    }
+
+    .bottom-controls {
+      bottom: 60px;
+      flex-direction: column-reverse;
+      gap: 16px;
+    }
+
+    .track-name::before {
+      display: none;
+    }
+
+    .playlist-button {
+      position: static;
+    }
+
+    .vignette-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+    }
+  }
+  
