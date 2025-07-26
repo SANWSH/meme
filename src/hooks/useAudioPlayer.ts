@@ -1,15 +1,41 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { musicTracks } from '../music';
+import { disabledTracks as defaultDisabledTracks } from '../config/disabled';
+import { trackSongPlay } from '../utils/analytics';
 
-export interface Track {
+/* export interface Track {
   src: string;
   name: string;
-}
+  disabled?: boolean;
+  category?: string;
+} */
+
+const getInitialPlaylist = (): Track[] => {
+  const savedDisabled = localStorage.getItem('disabledTracks');
+  if (savedDisabled) {
+    const disabled = new Set(JSON.parse(savedDisabled));
+    return musicTracks.filter(track => !disabled.has(track.name));
+  }
+  return musicTracks.filter(track => !defaultDisabledTracks.includes(track.name));
+};
+
+const getInitialVolume = (): number => {
+  const savedVolume = localStorage.getItem('volume');
+  if (savedVolume) {
+    const parsedVolume = parseFloat(savedVolume);
+    if (!isNaN(parsedVolume) && parsedVolume >= 0 && parsedVolume <= 1) {
+      return parsedVolume;
+    }
+  }
+  return 1;
+};
+
 
 export const useAudioPlayer = () => {
+  const [playlist, setPlaylist] = useState<Track[]>(getInitialPlaylist);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState<number>(getInitialVolume);
   const [sourceNode, setSourceNode] = useState<MediaElementAudioSourceNode | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -22,14 +48,16 @@ export const useAudioPlayer = () => {
       audioRef.current.play();
       setCurrentTrack(track);
       setIsPlaying(true);
+      trackSongPlay(track.name);
     }
   }, []);
 
   const playRandomTrack = useCallback(() => {
-    const randomIndex = Math.floor(Math.random() * musicTracks.length);
-    const nextTrack = musicTracks[randomIndex];
+    if (playlist.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * playlist.length);
+    const nextTrack = playlist[randomIndex];
     playTrack(nextTrack);
-  }, [playTrack]);
+  }, [playTrack, playlist]);
 
   const initializeAudio = useCallback(() => {
     if (!audioRef.current) {
@@ -80,6 +108,7 @@ export const useAudioPlayer = () => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
     }
+    localStorage.setItem('volume', volume.toString());
   }, [volume]);
 
   return {
@@ -88,9 +117,11 @@ export const useAudioPlayer = () => {
     volume,
     sourceNode,
     audioContext: audioContextRef.current,
+    playlist,
     togglePlay,
     playTrack,
     playRandomTrack,
     setVolume,
+    setPlaylist,
   };
 }; 

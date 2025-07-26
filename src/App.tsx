@@ -3,29 +3,29 @@ import './App.css';
 import Background from './assets/Background.png';
 import DownloadIcon from './assets/Download.svg';
 import PlaylistIcon from './assets/Playlist.svg';
-import DiceIcon from './assets/dice-six-faces-six.svg';
+import DiceIcon from './assets/dice.svg';
 import { getDisplayName } from './config/nameConfig';
 import MusicModal from './components/MusicModal';
 import PersonalInfoModal from './components/PersonalInfoModal';
 import GlowButton from './components/GlowButton';
-import { useAudioPlayer, type Track } from './hooks/useAudioPlayer';
+import { useAudioPlayer } from './hooks/useAudioPlayer';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPersonalModalOpen, setIsPersonalModalOpen] = useState(false);
-  const volumeIntervalRef = useRef<number | null>(null);
 
-  // Heavy hook
   const {
     isPlaying,
     currentTrack,
     volume,
     sourceNode,
     audioContext,
+    playlist,
     togglePlay,
     playTrack,
     setVolume,
     playRandomTrack,
+    setPlaylist,
   } = useAudioPlayer();
 
   const changeVolume = useCallback((amount: number) => {
@@ -50,16 +50,8 @@ function App() {
     };
   }, [changeVolume]);
 
-  const handleSelectTrack = (track: Track) => {
-    playTrack(track);
-    setIsModalOpen(false);
-  };
-
   const handleModalClose = () => {
     setIsModalOpen(false);
-    if (!isPlaying) {
-      togglePlay();
-    }
   };
 
   const handleDownload = () => {
@@ -76,7 +68,11 @@ function App() {
   return (
     <div className="app" style={{ backgroundImage: `url(${Background})` }}>
       <div className="vignette-overlay"></div>
-       {isModalOpen && <MusicModal onSelectTrack={handleSelectTrack} onClose={handleModalClose} />}
+       {isModalOpen && <MusicModal 
+       onSave={setPlaylist} 
+       onClose={handleModalClose} 
+       currentPlaylist={playlist} 
+       playTrack={playTrack} />}
        {isPersonalModalOpen && <PersonalInfoModal onClose={() => setIsPersonalModalOpen(false)} />}
       <div className="credits">
         All rights belong to <a href="https://www.croteam.com/" target="_blank" rel="noopener noreferrer">Croteam</a>. Music by <a href="https://www.youtube.com/@DMJ" target="_blank" rel="noopener noreferrer">Damjan Mravunac</a>
@@ -123,7 +119,12 @@ function App() {
           />
         </div>
       </div>
-      <a onClick={() => setIsPersonalModalOpen(true)} className="personal-link" style={{position: 'absolute', bottom: '20px', right: '20px', color: 'white', cursor: 'pointer'}}>About Me</a>
+      <a 
+      onClick={() => setIsPersonalModalOpen(true)} 
+      className="personal-link" 
+      style={{position: 'absolute', bottom: '20px', right: '20px', color: 'white', cursor: 'pointer'}}>
+        Credits
+      </a>
     </div>
   );
 }

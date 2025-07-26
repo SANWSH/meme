@@ -12,9 +12,12 @@ interface GlowButtonProps {
 
 const GlowButton: React.FC<GlowButtonProps> = ({ isPlaying, togglePlay, audioContext, source }) => {
   const [glowSize, setGlowSize] = useState(1);
+
+  //#region References
   const analyserRef = useRef<AnalyserNode | null>(null);
-  const dataArrayRef = useRef<Uint8Array | null>(null);
+  const dataBufferRef = useRef<Uint8Array | null>(null);
   const animationFrameIdRef = useRef<number | null>(null);
+  //#endregion
 
   useEffect(() => {
     if (audioContext && source && !analyserRef.current) {
@@ -22,7 +25,7 @@ const GlowButton: React.FC<GlowButtonProps> = ({ isPlaying, togglePlay, audioCon
       analyser.fftSize = 512;
       source.connect(analyser);
       analyserRef.current = analyser;
-      dataArrayRef.current = new Uint8Array(analyser.fftSize);
+      dataBufferRef.current = new Uint8Array(analyser.fftSize);
     }
 
     return () => {
@@ -34,12 +37,12 @@ const GlowButton: React.FC<GlowButtonProps> = ({ isPlaying, togglePlay, audioCon
   }, [audioContext, source]);
 
   const updateGlow = useCallback(() => {
-    if (!analyserRef.current || !dataArrayRef.current) {
+    if (!analyserRef.current || !dataBufferRef.current) {
       animationFrameIdRef.current = requestAnimationFrame(updateGlow);
       return;
     }
     const analyser = analyserRef.current;
-    const dataArray = dataArrayRef.current;
+    const dataArray = dataBufferRef.current;
 
     analyser.getByteTimeDomainData(dataArray);
 

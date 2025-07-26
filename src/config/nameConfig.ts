@@ -19,6 +19,9 @@ export const folderNames: Record<string, string> = {
   'ThebesSuburbs': 'Thebes Suburbs',
   'TombOfRamses': 'Tomb Of Ramses',
   'YellowTerrain': 'Sand Canyon',
+  'BetaYellowTerrain': 'Sand Canyon v0.10',
+  'BetaOasis': 'Oasis v0.10',
+  'BetaDreamWaterfalls': 'Moon Mountains v0.10',
 };
 
 export const trackNames: Record<string, Record<string, string>> = {
@@ -63,10 +66,10 @@ export const trackNames: Record<string, Record<string, string>> = {
   },
   'GreatPyramid': {
     'ApproachingPyramid': 'Approaching Pyramid',
-    'GreatPyramid1': 'Main x1',
-    'GreatPyramid2': 'Main x2',
-    'GreatPyramid3': 'Main x3',
-    'GreatPyramid4': 'Main x4',
+    'GreatPyramid1': 'Speed x1',
+    'GreatPyramid2': 'Speed x2',
+    'GreatPyramid3': 'Speed x3',
+    'GreatPyramid4': 'Speed x4',
     'LastFight': 'Last Fight',
   },
   'Hatshepsut': {
@@ -120,7 +123,20 @@ export const trackNames: Record<string, Record<string, string>> = {
     'Peace': 'Peace',
     'TemplePeace': 'Temple Peace',
   },
-  // Add more mappings as needed
+  'BetaYellowTerrain': {
+    'Medium': 'Medium',
+    'Peace': 'Peace',
+    'Fight': 'Fight',
+  },
+  'BetaOasis': {
+    'Medium': 'Medium',
+    'Peace': 'Peace',
+  },
+  'BetaDreamWaterfalls': {
+    'Medium': 'Medium',
+    'Peace': 'Peace',
+    'Fight': 'Fight',
+  },
 };
 
 export function getDisplayFolder(folder: string): string {

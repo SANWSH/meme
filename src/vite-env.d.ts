@@ -14,3 +14,9 @@ declare module '*.png' {
     const value: any;
     export default value;
   }
+
+  type Track = {
+    src: string;
+    name: string;
+    disabled?: boolean;
+  }

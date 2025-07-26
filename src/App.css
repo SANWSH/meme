@@ -76,8 +76,6 @@
 
   .track-name {
     position: relative; 
-    left: 50%;
-    transform: translateX(-50%);
     color: yellow;
     font-size: 1.45rem;
     text-shadow: -1px -1px 0px red, 1px 1px 0px red, 1px -1px 0px red, -1px 1px 0px red;
@@ -320,7 +318,7 @@
     .track-info-container h1,
     .next-button,
     .select-track-button {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .track-info-container {
