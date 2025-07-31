@@ -14,6 +14,11 @@ interface MusicModalProps {
 }
 
 const MusicModal: React.FC<MusicModalProps> = ({ onSave, onClose, currentPlaylist, playTrack }) => {
+
+  if (currentPlaylist.length === 0) {
+    return null;
+  }
+
   const [activeTab, setActiveTab] = useState('All');
   const [disabled, setDisabled] = useState<Set<string>>(() => {
     const savedDisabled = localStorage.getItem('disabledTracks');

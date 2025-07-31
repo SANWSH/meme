@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Background from './assets/Background.png';
 import DownloadIcon from './assets/Download.svg';
