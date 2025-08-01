@@ -18,9 +18,9 @@ class Router {
 
     public function add(string $method, string $uri, $handler, $middleware = null) {
         $this->routes[] = [
-            'method' => $method,
-            'uri' => parse_url($uri),
-            'handler' => $handler,
+            'method'     => $method,
+            'uri'        => parse_url($uri),
+            'handler'    => $handler,
             'middleware' => $middleware
         ];
     }

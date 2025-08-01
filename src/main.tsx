@@ -10,8 +10,11 @@ const getTest = async () => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res => res.json()).catch(err => {console.error(err); return {error: true, msg: err}});
-  return JSON.stringify(req);
+    })
+    .then(  res => res.json() )
+    .catch( err => ({error: true, msg: err}) );
+  
+    return JSON.stringify(req);
 }
 
 console.log( getTest() );
