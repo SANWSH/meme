@@ -1,20 +1,25 @@
 <?
 
+require_once 'IController.php';
 require_once '../model/test.php';
-class TestController {
-    public function create($payload) {
+class TestController implements IController{
+    public function create() {
 
+    }
+
+    public function find() {
+        
     }
 
     public function read() {
         echo "хуй";
     }
 
-    public function update($payload) {
+    public function update() {
 
     }
 
-    public function delete($payload) {
+    public function delete() {
 
     }
 }

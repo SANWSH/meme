@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src/api/environment.ini
+src/api/config/database.connection.ini

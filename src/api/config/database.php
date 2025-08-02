@@ -1,11 +1,20 @@
 <?
 
 class Database {
-    private $host = 'localhost';
-    private $db   = 'your_db';
-    private $user = 'your_user';
-    private $pass = 'your_pass';
+    private $host;
+    private $db;
+    private $user;
+    private $pass;
     private $connection;
+
+    private function getConnectionProps() {
+        $file_path = '../config/database.connection.ini';
+        
+        if(!is_file($file_path)) throw new Exception("Connection config has not found!");
+        $connection_config = parse_ini_file($file_path, true);
+
+        if(!isset($connection_config->database)) throw new Exception('Parsing of the database config failed!');
+    }
 
     public function getConnection() {
         $this->connection = null;
