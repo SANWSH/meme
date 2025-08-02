@@ -1,12 +1,13 @@
 <?
 
+require_once '../model/test.php';
 class TestController {
     public function create($payload) {
 
     }
 
     public function read() {
-        echo json_encode(['cursor' => 'it\'s takes a more mechanics to use!']); 
+        echo "хуй";
     }
 
     public function update($payload) {
