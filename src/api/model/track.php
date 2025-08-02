@@ -14,6 +14,9 @@ class TrackInstance {
 class TrackModel {
     public function create($blob, TrackInstance $track, callable $on_error = null) {
         // TODO: Make query to db and add track
+
+        $a = new TrackInstance('a', 's');
+
     }
 
 }

@@ -1,6 +1,6 @@
 <? 
 
-require_once 'middlewares/cors.php';
+require_once 'middlewares/headers.php';
 require_once 'router.php';
 require_once 'controller/testController.php';
 require_once 'model/playlist.php';
