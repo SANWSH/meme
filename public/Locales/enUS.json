@@ -1,0 +1,46 @@
+{
+    "credits": {
+        "index": "credits",
+        "rights": {
+            "pt1": "All rights belong to",
+            "pt2": "Croteam",
+            "pt3": "Music by",
+            "pt4": "Damjan Mravunac"
+        },
+        "thanks": {
+            "index": "Special thanks to",
+            "hobu40k": "for the v0.10 build's OST",
+            "riba4ok13": "for help in matching track titles",
+            "lissen": "for icon resources",
+            "thanadrax": "for posting news about the project in his channel",
+            "hchrel": "for his activity and interest in the project"
+        },  
+        "contacts": {
+            "index": "my contacts",
+            "email": "Email",
+            "author": "Author"
+        }  
+    },
+
+    "controls": {
+        "pushplay": "Push Play",
+        "playstate": "Now Playing:"
+    },
+
+    "playlist": {
+        "title": "Edit Playlist",
+        "categories": {
+            "all": "All",
+            "tfe": "TFE",
+            "tse": "TSE",
+            "beta": "v0.10",
+            "fight": "Fight",
+            "misc": "Misc"
+        },
+        "buttons": {
+            "disableall": "Disable all",
+            "setdefault": "Set default",
+            "save": "Save"
+        }
+    }
+}

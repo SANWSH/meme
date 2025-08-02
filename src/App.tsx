@@ -9,8 +9,11 @@ import MusicModal from './components/MusicModal';
 import PersonalInfoModal from './components/PersonalInfoModal';
 import GlowButton from './components/GlowButton';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { t } = useTranslation();
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPersonalModalOpen, setIsPersonalModalOpen] = useState(false);
 
@@ -75,7 +78,10 @@ function App() {
        playTrack={playTrack} />}
        {isPersonalModalOpen && <PersonalInfoModal onClose={() => setIsPersonalModalOpen(false)} />}
       <div className="credits">
-        All rights belong to <a href="https://www.croteam.com/" target="_blank" rel="noopener noreferrer">Croteam</a>. Music by <a href="https://www.youtube.com/@DMJ" target="_blank" rel="noopener noreferrer">Damjan Mravunac</a>
+        { t('credits.rights.pt1') }&nbsp;
+        <a href="https://www.croteam.com/" target="_blank" rel="noopener noreferrer">{ t('credits.rights.pt2') }</a>.&nbsp;
+        { t('credits.rights.pt3') }&nbsp;
+        <a href="https://www.youtube.com/@DMJ" target="_blank" rel="noopener noreferrer">{ t('credits.rights.pt4') }</a>&nbsp;
       </div>
       <div className="flicker-overlay"></div>
       <GlowButton
@@ -103,7 +109,7 @@ function App() {
             {isPlaying ? (
               <div className="track-name">{getDisplayName(currentTrack?.name || '')}</div>
             ) : (
-              <h1>Push Play</h1>
+              <h1>{ t("controls.pushplay") }</h1>
             )}
           </div>
         </div>
@@ -123,7 +129,7 @@ function App() {
       onClick={() => setIsPersonalModalOpen(true)} 
       className="personal-link" 
       style={{position: 'absolute', bottom: '20px', right: '20px', color: 'white', cursor: 'pointer'}}>
-        Credits
+        { t("credits.index")}
       </a>
     </div>
   );
