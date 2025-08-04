@@ -1,23 +1,47 @@
 <?
 
 class Database {
-    private $host;
-    private $db;
-    private $user;
-    private $pass;
-    private $connection;
+    private string|null $host = null;
+    private string|null $db   = null;
+    private string|null $user = null;
+    private string|null $pass = null;
+    private PDO|null $connection = null;
 
-    private function getConnectionProps() {
+    private bool $is_initialized = false;
+
+    private function init() {
         $file_path = '../config/database.connection.ini';
         
         if(!is_file($file_path)) throw new Exception("Connection config has not found!");
-        $connection_config = parse_ini_file($file_path, true);
+        
+        try {
+            $connection_config = parse_ini_file($file_path, true);
 
-        if(!isset($connection_config->database)) throw new Exception('Parsing of the database config failed!');
+            $this->host = $connection_config['host'];
+            $this->db   = $connection_config['db'];
+            $this->user = $connection_config['user'];
+            $this->pass = $connection_config['pass'];
+            $this->is_initialized = true;
+
+        } catch(ErrorException $ex) {
+            $this->is_initialized = false;
+            throw new Exception($ex->getMessage());
+        }
+
+    
     }
 
-    public function getConnection() {
-        $this->connection = null;
+    public function connect() {
+
+        if (!$this->is_initialized) {
+            try {
+                $this->init();
+            } catch (ErrorException $ex) {
+                echo json_encode(["error" => "Couldn't connect to database: " . $ex->getMessage()]);
+            }
+        }
+
+        $this->connection = null; // if connection exsists
         try {
             $this->connection = new PDO(
                 "mysql:host={$this->host};dbname={$this->db}",
