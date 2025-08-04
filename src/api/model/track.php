@@ -1,22 +1,35 @@
 <? 
 
-require_once '../config/database.php';
+require_once 'config/database.php';
 
 class TrackInstance {
-    public string $name;
-    public string $category; // TODO: Replace on CategoryInstance
-    public function __construct(string $track_name, string $track_category) {
+    public readonly string $name;
+    public readonly CategoryInstance $category;
+    public function __construct(string $track_name, CategoryInstance $track_category) {
         $this->name     = $track_name;
         $this->category = $track_category;
     }
 }
 
 class TrackModel {
-    public function create($blob, TrackInstance $track, callable $on_error = null) {
-        // TODO: Make query to db and add track
+    private $dbc = null;
+    // Output: id, track name, category name
+    public function get_track_by_name($track_name) {
+        if (!$this->dbc) {
+            $db = new Database();
+            $this->dbc = $db->connect();
+        }
 
-        $a = new TrackInstance('a', 's');
+        $statement = 
+        $this->dbc->query("select 
+        t.id as track_id, t.view_name as track_name, c.view_name as category_name
+        from track as t 
+        left join category as c on t.category_id = c.id;");
 
+        $statement->execute();
+        $res = $statement->fetch(PDO::FETCH_ASSOC);
+
+        echo json_encode(['data' => $res]);
     }
 
 }

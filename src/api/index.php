@@ -2,17 +2,16 @@
 
 require_once 'middlewares/headers.php';
 require_once 'router.php';
-require_once 'controller/testController.php';
-require_once 'model/playlist.php';
+
+require_once 'model/track.php';
+require_once 'config/database.php';
 
 $router = new Router();
 
 #region test_area
-    $playlist = new Playlist();
-    $playlist->init_playlist('./config/TrackList.ini');
+    $tracks = new TrackModel();
+    $tracks->get_track_by_name("test");
 #endregion
-
-$router->add('GET', '/test', 'TestController::read')  ;
 
 $router->listen();
 

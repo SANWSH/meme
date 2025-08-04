@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 src/api/environment.ini
 src/api/config/database.connection.ini
+src/api/config/database/tracks.db

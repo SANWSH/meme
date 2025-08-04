@@ -1,0 +1,3 @@
+TABLES:
+category -> id INTEGER PRIMARY KEY AUTOINCREMENT, view_name TEXT(40), name TEXT(8) NOT NULL
+track    -> id INTEGER PRIMARY KEY AUTOINCREMENT, view_name TEXT(40), name TEXT(8) NOT NULL, blob BLOB NOT NULL, category_id INTEGER
