@@ -10,7 +10,10 @@ $router = new Router();
 
 #region test_area
     $tracks = new TrackModel();
-    $tracks->get_track_by_name("test");
+    $tracksbyname = $tracks->get_track_by_name("test");
+    echo join($tracksbyname);
+    $tracksincat = $tracks->get_tracks_in_category("TSE");
+    echo join($tracksincat);
 #endregion
 
 $router->listen();
