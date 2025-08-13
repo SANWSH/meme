@@ -1,3 +1,9 @@
+:root {
+  --red: #F84C21;
+  --yellow: #FFED27;
+  --black: #231F20;
+}
+
 .app {
     position: relative;
     width: 100vw;
@@ -28,26 +34,6 @@
     text-decoration: underline;
   }
   
-  .flicker-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    animation: flicker 1.5s infinite;
-    pointer-events: none;
-  }
-  
-  @keyframes flicker {
-    0%, 100% {
-      filter: brightness(1.2);
-    }
-    50% {
-      filter: brightness(0.8);
-    }
-  }
-  
   .play-button-container {
     position: relative;
     display: flex;
@@ -57,8 +43,8 @@
 
   .glow {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     transition: transform 0.1s ease-out;
   }
 
@@ -70,20 +56,24 @@
   }
   
   .play-pause-button img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 
   .track-name {
     position: relative; 
-    color: yellow;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #FFED27;
     font-size: 1.45rem;
     text-shadow: -1px -1px 0px red, 1px 1px 0px red, 1px -1px 0px red, -1px 1px 0px red;
   }
 
   .track-name::before {
-    content: "Now Playing: ";
-    font-size: 1.45rem;
+    content: attr(data-before);
+    font-size: 1.15rem;
+    margin-bottom: 6px;
     opacity: 0.5; 
     color: white;
     text-shadow: none;
@@ -112,9 +102,12 @@
 
   .left-controls {
     display: flex;
+    background-color: #00000080;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 6px 2px #00000080;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     flex-grow: 1;
   }
 
@@ -122,7 +115,6 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 15px;
     border-radius: 10px;
     width: 100%;
@@ -137,12 +129,11 @@
   }
 
   .track-info-container {
+    min-height: 100px;
     display: flex;
     position: relative;
     align-items: center;
     gap: 100px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px 15px;
     border-radius: 10px;
     white-space: nowrap;
     justify-content: center;
@@ -177,8 +168,7 @@
   .playlist-button img {
     width: 32px;
     height: 32px;
-    filter: invert(1);
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s ease;
   }
 
@@ -199,7 +189,6 @@
   .download-button img {
     width: 24px;
     height: 24px;
-    filter: invert(1);
   }
 
   .download-button:disabled {
@@ -236,7 +225,6 @@
   .icon-button img {
     width: 32px;
     height: 32px;
-    filter: invert(1);
   }
 
   .icon-button:hover {
@@ -253,7 +241,7 @@
     appearance: none;
     width: 100px;
     height: 10px;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--yellow);
     border-radius: 5px;
     outline: none;
     opacity: 0.7;
@@ -286,15 +274,19 @@
     -webkit-appearance: slider-vertical;
     writing-mode: bt-lr;
     width: 10px;
-    height: 120px;
+    height: 90px;
   }
 
   .volume-controls {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    background-color: #00000080;
+    padding: 10px 14px;
+    gap: 4px;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 6px 2px #00000080;
     border-radius: 10px;
   }
 
@@ -331,6 +323,8 @@
     }
 
     .bottom-controls {
+      position: relative;
+      min-height: 160px;
       bottom: 60px;
       flex-direction: column-reverse;
       gap: 16px;

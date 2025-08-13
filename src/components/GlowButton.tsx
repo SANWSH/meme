@@ -79,7 +79,7 @@ const GlowButton: React.FC<GlowButtonProps> = ({ isPlaying, togglePlay, audioCon
     <div className="play-button-container">
       <img src={Glow} alt="Glow" className="glow" style={{ transform: `scale(${glowSize})` }} />
       <button onClick={togglePlay} className="play-pause-button">
-        <img src={isPlaying ? PauseButton : PlayButton} alt="Play/Pause" />
+        <img src={isPlaying ? PauseButton : PlayButton} alt="Play/Pause" width={200}/>
       </button>
     </div>
   );

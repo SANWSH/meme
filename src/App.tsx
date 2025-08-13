@@ -10,6 +10,7 @@ import PersonalInfoModal from './components/PersonalInfoModal';
 import GlowButton from './components/GlowButton';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTranslation } from 'react-i18next';
+import SoundIcon from './assets/sound.svg';
 
 function App() {
   const { t } = useTranslation();
@@ -107,13 +108,14 @@ function App() {
           </div>
           <div className="track-info-container">
             {isPlaying ? (
-              <div className="track-name">{getDisplayName(currentTrack?.name || '')}</div>
+              <div className="track-name" data-before={ t('controls.playstate') }>{getDisplayName(currentTrack?.name || '')}</div>
             ) : (
               <h1>{ t("controls.pushplay") }</h1>
             )}
           </div>
         </div>
         <div className="volume-controls">
+          <img src={SoundIcon} alt='' />
           <input
             type="range"
             min="0"
@@ -129,7 +131,7 @@ function App() {
       onClick={() => setIsPersonalModalOpen(true)} 
       className="personal-link" 
       style={{position: 'absolute', bottom: '20px', right: '20px', color: 'white', cursor: 'pointer'}}>
-        { t("credits.index")}
+        { t("credits.index") }
       </a>
     </div>
   );

@@ -1,12 +1,15 @@
 import React from 'react';
 import './PersonalInfoModal.css';
 import banner from '/banner.png';
+import { useTranslation } from 'react-i18next';
 
 interface PersonalInfoModalProps {
   onClose: () => void;
 }
 
 const PersonalInfoModal: React.FC<PersonalInfoModalProps> = ({ onClose }) => {
+
+  const { t } = useTranslation();
 
   const email = "scarobey.buy@gmail.com";
   const telegram = "https://t.me/SANWSHTG";
@@ -24,13 +27,13 @@ const PersonalInfoModal: React.FC<PersonalInfoModalProps> = ({ onClose }) => {
 
         <div className="info-card">
         <div className="info-card-header">
-          <h3 className='credit-header'>Special thanks to</h3>
+          <h3 className='credit-header'>{ t('credits.thanks.index') }</h3>
         </div>
-        <span style={{display: 'block'}}><b style={{color: 'pink',letterSpacing: '1px'}}>hobu40k</b> for the v0.10 build's OST</span>
-        <span style={{display: 'block'}}><b style={{color: 'dodgerblue',letterSpacing: '1px'}}>Riba4ok13</b> for help in matching track titles</span>
-        <span style={{display: 'block'}}><b style={{color: 'orange',letterSpacing: '1px'}}>LisSen</b> for icon resources</span>
-        <span style={{display: 'block'}}><b style={{color: 'gold',letterSpacing: '1px'}}>Thanadrax</b> for posting news about the project in his channel</span>
-        <span style={{display: 'block'}}><b style={{color: 'green',letterSpacing: '1px'}}>HChrel</b> for his activity and interest in the project</span>
+        <span style={{display: 'block'}}><b style={{color: 'pink',letterSpacing: '1px'}}>hobu40k</b>&nbsp;{ t('credits.thanks.hobu40k') }</span>
+        <span style={{display: 'block'}}><b style={{color: 'dodgerblue',letterSpacing: '1px'}}>Riba4ok13</b>&nbsp;{ t('credits.thanks.riba4ok13') }</span>
+        <span style={{display: 'block'}}><b style={{color: 'orange',letterSpacing: '1px'}}>LisSen</b>&nbsp;{ t('credits.thanks.lissen') }</span>
+        <span style={{display: 'block'}}><b style={{color: 'gold',letterSpacing: '1px'}}>Thanadrax</b>&nbsp;{ t('credits.thanks.thanadrax') }</span>
+        <span style={{display: 'block'}}><b style={{color: 'green',letterSpacing: '1px'}}>HChrel</b>&nbsp;{ t('credits.thanks.hchrel') }</span>
         </div>
 
         <div className="info-card">

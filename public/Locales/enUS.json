@@ -7,6 +7,11 @@
             "pt3": "Music by",
             "pt4": "Damjan Mravunac"
         },
+        "translation": {
+            "index": "Translation",
+            "ua": "Ukranian language",
+            "by": "Belarusian language"
+        },
         "thanks": {
             "index": "Special thanks to",
             "hobu40k": "for the v0.10 build's OST",
