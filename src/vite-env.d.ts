@@ -21,3 +21,8 @@ declare module '*.png' {
     disabled?: boolean;
     category?: string;
   }
+
+  type LocaleType = {
+    locale: string;
+    icon: string;
+  }

@@ -84,7 +84,7 @@ function App() {
         { t('credits.rights.pt3') }&nbsp;
         <a href="https://www.youtube.com/@DMJ" target="_blank" rel="noopener noreferrer">{ t('credits.rights.pt4') }</a>&nbsp;
       </div>
-      <div className="flicker-overlay"></div>
+      
       <GlowButton
         isPlaying={isPlaying}
         togglePlay={togglePlay}

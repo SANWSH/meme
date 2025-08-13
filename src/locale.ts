@@ -6,6 +6,7 @@ import ruRU from "../public/locales/ruRU.json";
 import ukUA from "../public/locales/ukUA.json";
 import beBY from "../public/locales/beBY.json";
 
+export type LocaleType = {locale: string, icon: string}
 
 const resources = {
     en: { translation: enUS },
