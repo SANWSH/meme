@@ -3,25 +3,12 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './locale.ts';
 import App from './App.tsx'
-
-const getTest = async () => {
-  const req = await fetch('http://localhost:1337/test', 
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(  res => res.json() )
-    .catch( err => ({error: true, msg: err}) );
-  
-    return JSON.stringify(req);
-}
-
-console.log( getTest() );
+import { AudioProvider } from './provider/AudioProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AudioProvider track={null} context={null} data={null} node={null}>
+      <App />
+    </AudioProvider>
   </StrictMode>,
 )

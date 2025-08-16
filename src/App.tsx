@@ -1,16 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Background from './assets/Background.png';
-import DownloadIcon from './assets/Download.svg';
-import PlaylistIcon from './assets/Playlist.svg';
-import DiceIcon from './assets/dice.svg';
 import { getDisplayName } from './config/nameConfig';
 import MusicModal from './components/MusicModal';
 import PersonalInfoModal from './components/PersonalInfoModal';
 import GlowButton from './components/GlowButton';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTranslation } from 'react-i18next';
-import SoundIcon from './assets/sound.svg';
+import Controls from './components/Controls';
 
 function App() {
   const { t } = useTranslation();
@@ -91,42 +88,15 @@ function App() {
         audioContext={audioContext}
         source={sourceNode}
       />
-      <div className="bottom-controls">
-        <div className="left-controls">
-          <div className="button-container">
-            <button onClick={() => setIsModalOpen(true)} className="icon-button">
-              <img src={PlaylistIcon} alt="Playlist" />
-            </button>
-            <div className="action-buttons">
-              <button onClick={handleDownload} className="icon-button" disabled={!isPlaying}>
-                <img src={DownloadIcon} alt="Download" />
-              </button>
-              <button onClick={playRandomTrack} className="icon-button" disabled={!isPlaying}>
-                <img src={DiceIcon} alt="Next Random" />
-              </button>
-            </div>
-          </div>
-          <div className="track-info-container">
-            {isPlaying ? (
-              <div className="track-name" data-before={ t('controls.playstate') }>{getDisplayName(currentTrack?.name || '')}</div>
-            ) : (
-              <h1>{ t("controls.pushplay") }</h1>
-            )}
-          </div>
-        </div>
-        <div className="volume-controls">
-          <img src={SoundIcon} alt='' />
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={(e) => setVolume(parseFloat(e.target.value))}
-            className="volume-slider vertical"
-          />
-        </div>
-      </div>
+{/*       <Controls 
+        handle-Download={handleDownload} 
+        handle-PlayRandom={playRandomTrack}
+        handle-SetVolume={setVolume}
+        handle-modal={setIsModalOpen}
+        handle-displayed={getDisplayName}
+        isPlaying={isPlaying}
+        Volume={volume}
+      /> */}
       <a 
       onClick={() => setIsPersonalModalOpen(true)} 
       className="personal-link" 

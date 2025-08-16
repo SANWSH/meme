@@ -1,14 +1,8 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useContext } from 'react';
 import { musicTracks } from '../music';
 import { disabledTracks as defaultDisabledTracks } from '../config/disabled';
 import { trackSongPlay } from '../utils/analytics';
-
-/* export interface Track {
-  src: string;
-  name: string;
-  disabled?: boolean;
-  category?: string;
-} */
+import { AudioCtx } from '../context/AudioContext';
 
 const getInitialPlaylist = (): Track[] => {
   const savedDisabled = localStorage.getItem('disabledTracks');
@@ -32,6 +26,8 @@ const getInitialVolume = (): number => {
 
 
 export const useAudioPlayer = () => {
+  const ctx = useContext(AudioCtx);
+
   const [playlist, setPlaylist] = useState<Track[]>(getInitialPlaylist);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
@@ -49,6 +45,7 @@ export const useAudioPlayer = () => {
       setCurrentTrack(track);
       setIsPlaying(true);
       trackSongPlay(track.name);
+      ctx.track = track;
     }
   }, []);
 
@@ -66,6 +63,7 @@ export const useAudioPlayer = () => {
     
     if (!audioContextRef.current) {
       const context = new AudioContext();
+      ctx.context = context; // test fill context
       audioContextRef.current = context;
       
       const source = context.createMediaElementSource(audioRef.current);

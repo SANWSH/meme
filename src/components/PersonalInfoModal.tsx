@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './PersonalInfoModal.css';
 import banner from '/banner.png';
 import { useTranslation } from 'react-i18next';
+import { AudioCtx } from '../context/AudioContext';
 
 interface PersonalInfoModalProps {
   onClose: () => void;
 }
 
 const PersonalInfoModal: React.FC<PersonalInfoModalProps> = ({ onClose }) => {
-
+  const ctx = useContext(AudioCtx);
   const { t } = useTranslation();
 
   const email = "scarobey.buy@gmail.com";
@@ -27,7 +28,7 @@ const PersonalInfoModal: React.FC<PersonalInfoModalProps> = ({ onClose }) => {
 
         <div className="info-card">
         <div className="info-card-header">
-          <h3 className='credit-header'>{ t('credits.thanks.index') }</h3>
+          <h3 className='credit-header'>{ t('credits.thanks.index') } { ctx.track?.name } </h3>
         </div>
         <span style={{display: 'block'}}><b style={{color: 'pink',letterSpacing: '1px'}}>hobu40k</b>&nbsp;{ t('credits.thanks.hobu40k') }</span>
         <span style={{display: 'block'}}><b style={{color: 'dodgerblue',letterSpacing: '1px'}}>Riba4ok13</b>&nbsp;{ t('credits.thanks.riba4ok13') }</span>
